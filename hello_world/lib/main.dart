@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MaterialApp(title: 'Navigator', home: new FirstScreen()));
+  runApp(MaterialApp(title: 'Navigator', routes: {
+    "/": (context) => FirstScreen(),
+    "second": (context) => SecondScreen(),
+  }));
 }
 
 class FirstScreen extends StatelessWidget {
@@ -13,8 +16,7 @@ class FirstScreen extends StatelessWidget {
             child: RaisedButton(
           child: Text('Detail'),
           onPressed: () {
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => SecondScreen()));
+            Navigator.of(context).pushNamed('second', arguments: 'param');
           },
         )));
   }
@@ -23,11 +25,12 @@ class FirstScreen extends StatelessWidget {
 class SecondScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    var args = ModalRoute.of(context).settings.arguments;
     return Scaffold(
         appBar: AppBar(title: Text('Detail')),
         body: Center(
             child: RaisedButton(
-          child: Text('Back'),
+          child: Text(args),
           onPressed: () {
             Navigator.pop(context);
           },

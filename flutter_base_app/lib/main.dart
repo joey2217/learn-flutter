@@ -8,6 +8,7 @@ import 'pages/cart.dart';
 import 'pages/checkbox_switch.dart';
 import 'pages/constraints.dart';
 import 'pages/container_box.dart';
+import 'pages/custom_paint_page.dart';
 import 'pages/darg_page.dart';
 import 'pages/dialog.dart';
 import 'pages/form_text_field.dart';
@@ -24,6 +25,7 @@ import 'pages/scroll_notification.dart';
 import 'pages/stagger_view.dart';
 import 'pages/tab_view.dart';
 import 'pages/theme.dart';
+import 'pages/turn_box_page.dart';
 import 'pages/value_listenable_page.dart';
 import 'pages/will_pop_scope.dart';
 
@@ -81,8 +83,11 @@ class MyApp extends StatelessWidget {
         "/AnimationPage": (context) => const AnimationPage(),
         "/HeroView": (context) => const HeroView(),
         "/StaggerView": (context) => const StaggerView(),
+        "/TurnBoxPage": (context) => const TurnBoxPage(),
         "/AnimatedSwitcherCounter": (context) =>
             const AnimatedSwitcherCounter(),
+        "/CustomPaintPage": (context) => const CustomPaintPage(),
+
       },
     );
   }
@@ -258,6 +263,18 @@ class MyHomePage extends StatelessWidget {
                 Navigator.pushNamed(context, "/AnimatedSwitcherCounter");
               },
               child: const Text('AnimatedSwitcherCounter'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pushNamed(context, "/TurnBoxPage");
+              },
+              child: const Text('TurnBoxPage'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pushNamed(context, "/CustomPaintPage");
+              },
+              child: const Text('CustomPaint'),
             ),
           ],
         ));

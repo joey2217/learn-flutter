@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_base_app/pages/l10n_page.dart';
+import 'package:flutter_base_app/pages/video_page.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
 import 'generated/l10n.dart';
@@ -100,6 +101,7 @@ class MyApp extends StatelessWidget {
             const AnimatedSwitcherCounter(),
         "/CustomPaintPage": (context) => const CustomPaintPage(),
         "/L10nPage": (context) => const L10nPage(),
+        "/VideoPage": (context) => const VideoPage(),
 
       },
     );
@@ -294,6 +296,12 @@ class MyHomePage extends StatelessWidget {
                 Navigator.pushNamed(context, "/L10nPage");
               },
               child: const Text('L10nPage'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pushNamed(context, "/VideoPage");
+              },
+              child: const Text('VideoPage'),
             ),
           ],
         ));

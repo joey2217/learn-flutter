@@ -1,0 +1,12 @@
+{
+    "pageHomeConfirm": "确定",
+    "pageHomeWelcome": "欢迎 {name}",
+    "@pageHomeWelcome":{
+        "placeholders":{
+            "name":"陌生人"
+        }
+    },
+    "pageHomeWelcomeGender": "{gender, select, male {你好男人!} female {你好女人!} other {你好!}}",
+    "pageHomeWelcomeRole": "{role, select, admin {Hi 管理员!} manager {Hi 经理!} other {Hi 访客!}}",
+    "pageNotificationsCount": "{howMany, plural, one{1 message} other{{howMany} messages}}"
+}

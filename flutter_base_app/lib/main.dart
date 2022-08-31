@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_base_app/pages/l10n_page.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
+import 'generated/l10n.dart';
+import 'l10n/l10n.dart';
 import 'pages/animated_switcher_counter.dart';
 import 'pages/animation_page.dart';
 import 'pages/back_top.dart';
@@ -55,6 +59,14 @@ class MyApp extends StatelessWidget {
       ),
       debugShowCheckedModeBanner: false,
       initialRoute: "/",
+      locale: const Locale('zh', 'CN'),
+      localizationsDelegates: const [
+        S.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        DemoLocalizationsDelegate(),
+      ],
+      supportedLocales: S.delegate.supportedLocales,
       routes: {
         "/": (context) => const MyHomePage(),
         "/buttons": (context) => const Buttons(),
@@ -87,6 +99,7 @@ class MyApp extends StatelessWidget {
         "/AnimatedSwitcherCounter": (context) =>
             const AnimatedSwitcherCounter(),
         "/CustomPaintPage": (context) => const CustomPaintPage(),
+        "/L10nPage": (context) => const L10nPage(),
 
       },
     );
@@ -100,7 +113,7 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text("Home"),
+          title: Text(DemoLocalizations.of(context).title),
         ),
         body: GridView.count(
           crossAxisCount: 4,
@@ -275,6 +288,12 @@ class MyHomePage extends StatelessWidget {
                 Navigator.pushNamed(context, "/CustomPaintPage");
               },
               child: const Text('CustomPaint'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pushNamed(context, "/L10nPage");
+              },
+              child: const Text('L10nPage'),
             ),
           ],
         ));
